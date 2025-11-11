@@ -6,25 +6,30 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "npx nyc --reporter=lcov --reporter=text --extension=.js mocha --exit",
+    "test": "nyc mocha --exit",
     "lint": "eslint . --ext .js"
   },
-"nyc": {
+  "nyc": {
     "reporter": [
       "lcov",
       "text",
-      "html" 
+      "html"
     ],
     "report-dir": "coverage",
     "instrument": true,
-    "extension": [".js"], 
+    "extension": [
+      ".js"
+    ],
     "include": [
-      "**/*.js" 
+      "**/*.js"
     ],
     "exclude": [
       "coverage/**",
       "test/**",
       "node_modules/**"
+    ],
+    "require": [
+      "@istanbuljs/esm-loader-hook"
     ]
   },
   "repository": {
@@ -44,6 +49,7 @@
     "supertest": "^7.1.4"
   },
   "devDependencies": {
+    "@istanbuljs/esm-loader-hook": "^0.3.0",
     "chai": "^4.3.10",
     "eslint": "^8.57.0",
     "nyc": "^17.1.0"
