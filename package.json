@@ -1,0 +1,32 @@
+{
+  "name": "cheng-porchheng-lab1",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha --exit",
+    "lint": "eslint . --ext .js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Porchhenng/cheng-porchheng-lab1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Porchhenng/cheng-porchheng-lab1/issues"
+  },
+  "homepage": "https://github.com/Porchhenng/cheng-porchheng-lab1#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "mocha": "^11.7.5",
+    "supertest": "^7.1.4"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "eslint": "^8.57.0"
+  }
+}
