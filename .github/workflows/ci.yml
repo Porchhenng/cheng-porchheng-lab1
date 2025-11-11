@@ -24,3 +24,13 @@ jobs:
       run: npm run lint  # Changed from 'yarn lint' to 'npm run lint'
     - name: Run tests
       run: npm test  # Changed from 'yarn test' to 'npm test'
+    - name: Run tests and collect coverage
+      run: npm test
+
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report-${{ matrix.node-version }}
+        path: coverage/lcov-report  # Common output folder for nyc
+        retention-days: 5
+
