@@ -27,9 +27,6 @@
       "coverage/**",
       "test/**",
       "node_modules/**"
-    ],
-    "require": [
-      "@istanbuljs/esm-loader-hook"
     ]
   },
   "repository": {
