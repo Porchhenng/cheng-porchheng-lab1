@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "nyc mocha --exit",
+    "test": "npx nyc --reporter=lcov --reporter=text --extension=.js mocha --exit",
     "lint": "eslint . --ext .js"
   },
 "nyc": {
