@@ -9,6 +9,13 @@
     "test": "nyc mocha --exit",
     "lint": "eslint . --ext .js"
   },
+  "nyc": {                  
+    "reporter": [
+      "lcov",             
+      "text"                
+    ],
+    "report-dir": "coverage" 
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Porchhenng/cheng-porchheng-lab1.git"
