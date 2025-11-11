@@ -9,12 +9,23 @@
     "test": "nyc mocha --exit",
     "lint": "eslint . --ext .js"
   },
-  "nyc": {                  
+"nyc": {
     "reporter": [
-      "lcov",             
-      "text"                
+      "lcov",
+      "text",
+      "html" 
     ],
-    "report-dir": "coverage" 
+    "report-dir": "coverage",
+    "instrument": true,
+    "extension": [".js"], 
+    "include": [
+      "**/*.js" 
+    ],
+    "exclude": [
+      "coverage/**",
+      "test/**",
+      "node_modules/**"
+    ]
   },
   "repository": {
     "type": "git",
