@@ -22,10 +22,12 @@ jobs:
       run: npm ci  # Changed from 'yarn install --frozen-lockfile' to 'npm ci'
     - name: Lint code
       run: npm run lint  # Changed from 'yarn lint' to 'npm run lint'
-    - name: Run tests
-      run: npm test  # Changed from 'yarn test' to 'npm test'
+    # - name: Run tests
+    #   run: npm test 
     - name: Run tests and collect coverage
       run: npm test
+      env:
+          NODE_OPTIONS: --loader=@istanbuljs/esm-loader-hook
 
     - name: Upload coverage report
       uses: actions/upload-artifact@v4
