@@ -35,4 +35,29 @@ jobs:
         name: coverage-report-${{ matrix.node-version }}
         path: coverage/lcov.info
         retention-days: 5
+  deploy: # <--- NEW DEPLOYMENT JOB
+    name: Deploy to Vercel
+    needs: [build-and-test] # CRITICAL: Only runs after build-and-test is successful
+    runs-on: ubuntu-latest
+    
+    # CRITICAL: Deployment should only happen when pushing to 'main'
+    # and not on Pull Requests.
+    if: github.ref == 'refs/heads/main' 
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      # Vercel Deployment Action
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          # This should be the name of the project you set up in Vercel
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} 
+          # The ID of your Vercel organization (optional, but recommended)
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} 
+          # The token we created in step 1
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} 
+          # Deploy to the production alias (main domain)
+          vercel-args: '--prod'
 
